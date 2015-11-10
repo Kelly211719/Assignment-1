@@ -1,0 +1,508 @@
+<html>
+<head>
+<title> Assign 1 </title>
+<script src="scripts/processing.js"></script>
+<script type="text/processing" data-processing-target="mycanvas">
+
+PImage zero;
+PImage nu1;
+PImage nu2;
+PImage nu3;
+PImage nu4;
+PImage nu5;
+PImage nu6;
+PImage nu7;
+PImage nu8;
+PImage nu9;
+PImage star;
+
+int rectGap;
+int rectWidth;
+int rectHeight;
+int press;
+int presstgt;
+int code;
+int count; 
+
+
+void setup()
+{
+	size( 900, 700 );
+	frameRate( 30 );
+	
+	zero = loadImage("Images/Zero.png");
+	nu1 = loadImage("Images/One.png");
+	nu2 = loadImage("Images/Two.png");
+	nu3 = loadImage("Images/Three.png");
+	nu4 = loadImage("Images/Four.png");
+	nu5 = loadImage("Images/Five.png");
+	nu6 = loadImage("Images/Six.png");
+	nu7 = loadImage("Images/Seven.png");
+	nu8 = loadImage("Images/Eight.png");
+	nu9 = loadImage("Images/Nine.png");
+	star = loadImage("Images/Star.png");
+	
+	rectGap = 10;
+	rectWidth = 100;
+	rectHeight = 100;
+	press = 0;
+	presstgt = 0;
+	code = 0;
+	count = 0;
+	
+		
+}
+
+
+void draw()
+{
+	background(0,0,0);
+
+	//column1
+	//one
+	rect(50,50,rectWidth,rectHeight);
+	image(nu1,50,50);
+		
+	//four
+	rect(50,50+rectHeight+rectGap,rectWidth,rectHeight);
+	image(nu4,50,50+rectHeight+rectGap);
+		
+	//seven
+	rect(50,50+rectHeight*2+rectGap*2,rectWidth,rectHeight);
+	image(nu7,50,50+rectHeight*2+rectGap*2);
+		
+	//column2
+	//two
+	rect(50+rectWidth+rectGap,50,rectWidth,rectHeight);
+	image(nu2,50+rectWidth+rectGap,50);
+		
+	//five
+	rect(50+rectWidth+rectGap,50+rectHeight+rectGap,rectWidth,rectHeight);
+	image(nu5,50+rectWidth+rectGap,50+rectHeight+rectGap);
+		
+	//eight
+	rect(50+rectWidth+rectGap,50+rectHeight*2+rectGap*2,rectWidth,rectHeight);
+	image(nu8,50+rectWidth+rectGap,50+rectHeight*2+rectGap*2);
+		
+	//zero
+	rect(50+rectWidth+rectGap,50+rectHeight*3+rectGap*3,rectWidth,rectHeight);
+	image(zero,50+rectWidth+rectGap,50+rectHeight*3+rectGap*3);
+		
+	//column3
+	//three
+	rect(50+rectWidth*2+rectGap*2,50,rectWidth,rectHeight);
+	image(nu3,50+rectWidth*2+rectGap*2,50);
+		
+	//six
+	rect(50+rectWidth*2+rectGap*2,50+rectHeight+rectGap,rectWidth,rectHeight);
+	image(nu6,50+rectWidth*2+rectGap*2,50+rectHeight+rectGap);
+		
+	//nine
+	rect(50+rectWidth*2+rectGap*2,50+rectHeight*2+rectGap*2,rectWidth,rectHeight);
+	image(nu9,50+rectWidth*2+rectGap*2,50+rectHeight*2+rectGap*2);
+		
+	
+	//box
+	fill(255,255,255);
+	rect(400+35,300-130,400,100);
+	
+	//function 
+	//one
+	if(mousePressed == true && mouseButton == LEFT && presstgt == 0 && count ==0)
+	{
+		if(mouseX > 50 && mouseX < 50+rectWidth && mouseY > 50 && mouseY < 50+rectHeight)
+		{
+			press = press+1;
+			presstgt = 1;
+		}
+		
+		if (press == 1)
+		{
+			code = code+1000*1;
+		}
+		
+		if (press == 2)
+		{
+			code = code+100*1;
+		}
+		if (press == 3)
+		{
+			code = code+10*1;
+		}
+		if (press == 4)
+		{
+			code = code+1*1;
+			count = 1;
+		}
+		
+	}
+	
+	if(mousePressed == false)
+	{
+		presstgt = 0;
+		count = 0;
+	}
+	
+	//two
+	if(mousePressed == true && mouseButton == LEFT && presstgt == 0)
+	{
+		if(mouseX > 50+rectWidth+rectGap && mouseX < 50+rectWidth*2+rectGap && 
+			mouseY > 50 && mouseY < 50+rectHeight)
+		{
+			press = press+1;
+			presstgt = 1;
+		}
+		
+		if (press == 1 )
+		{
+			code = code+1000*2;
+		}
+		
+		if (press == 2)
+		{
+			code = code+100*2;
+		}
+		if (press == 3)
+		{
+			code = code+10*2;
+		}
+		if (press == 4)
+		{
+			code = code+1*2;
+		}
+		
+	}
+	
+	if(mousePressed == false)
+	{
+		presstgt = 0;
+	}
+	
+	//three
+	if(mousePressed == true && mouseButton == LEFT && presstgt == 0)
+	{
+		if(mouseX > 50+rectWidth*2+rectGap*2 && mouseX < 50+rectWidth*3+rectGap && 
+			mouseY > 50 && mouseY < 50+rectHeight)
+		{
+			press = press+1;
+			presstgt = 1;
+		}
+		
+		if (press == 1 )
+		{
+			code = code+ 1000*3;
+		}
+		
+		if (press == 2)
+		{
+			code = code +100*3;
+		}
+		if (press == 3)
+		{
+			code = code + 10*3;
+		}
+		if (press == 4)
+		{
+			code = code + 1*3;
+		}
+		
+	}
+	
+		if(mousePressed == false)
+	{
+		presstgt = 0;
+	}
+	
+	//four
+	if(mousePressed == true && mouseButton == LEFT && presstgt == 0)
+	{
+		if(mouseX > 50 && mouseX < 50+rectWidth && 
+			mouseY > 50+rectHeight+rectGap && mouseY < 50+rectHeight*2+rectGap)
+		{
+			press = press+1;
+			presstgt = 1;
+		}
+		
+		if (press == 1 )
+		{
+			code = code + 1000*4;
+		}
+		
+		if (press == 2)
+		{
+			code = code + 100*4;
+		}
+		if (press == 3)
+		{
+			code = code + 10*4;
+		}
+		if (press == 4)
+		{
+			code = code + 1*4;
+		}
+		
+	}
+	
+	
+	if(mousePressed == false)
+	{
+		presstgt = 0;
+	}
+	
+	//five 
+	if(mousePressed == true && mouseButton == LEFT && presstgt == 0)
+	{
+		if(mouseX > 50+rectWidth+rectGap && mouseX < 50+rectWidth*2+rectGap && 
+			mouseY > 50+rectHeight+rectGap && mouseY < 50+rectHeight*2+rectGap)
+		{
+			press = press+1;
+			presstgt = 1;
+		}
+		
+		if (press == 1 )
+		{
+			code = code + 1000*5;
+		}
+		
+		if (press == 2)
+		{
+			code = code + 100*5;
+		}
+		if (press == 3)
+		{
+			code = code + 10*5;
+		}
+		if (press == 4)
+		{
+			code = code + 1*5;
+		}
+		
+	}
+	
+	
+	if(mousePressed == false)
+	{
+		presstgt = 0;
+	}
+	
+	//six
+	if(mousePressed == true && mouseButton == LEFT && presstgt == 0)
+	{
+		if(mouseX > 50+rectWidth*2+rectGap*2 && mouseX < 50+rectWidth*3+rectGap && 
+			mouseY > 50+rectHeight+rectGap && mouseY < 50+rectHeight*2+rectGap)
+		{
+			press = press+1;
+			presstgt = 1;
+		}
+		
+		if (press == 1 )
+		{
+			code = code + 1000*6;
+		}
+		
+		if (press == 2)
+		{
+			code = code + 100*6;
+		}
+		if (press == 3)
+		{
+			code = code + 10*6;
+		}
+		if (press == 4)
+		{
+			code = code + 1*6;
+		}
+		
+	}
+	
+	
+	if(mousePressed == false)
+	{
+		presstgt = 0;
+	}
+	
+	//seven 
+	if(mousePressed == true && mouseButton == LEFT && presstgt == 0)
+	{
+		if(mouseX > 50 && mouseX < 50+rectWidth && 
+			mouseY > 50+rectHeight*2+rectGap*2 && mouseY < 50+rectHeight*3+rectGap)
+		{
+			press = press+1;
+			presstgt = 1;
+		}
+		
+		if (press == 1 )
+		{
+			code = code + 1000*5;
+		}
+		
+		if (press == 2)
+		{
+			code = code + 100*5;
+		}
+		if (press == 3)
+		{
+			code = code + 10*5;
+		}
+		if (press == 4)
+		{
+			code = code + 1*5;
+		}
+		
+	}
+	
+	
+	if(mousePressed == false)
+	{
+		presstgt = 0;
+	}
+	
+	//eight
+	if(mousePressed == true && mouseButton == LEFT && presstgt == 0)
+	{
+		if(mouseX > 50+rectWidth+rectGap && mouseX < 50+rectWidth*2+rectGap && 
+			mouseY > 50+rectHeight*2+rectGap*2 && mouseY < 50+rectHeight*3+rectGap)
+		{
+			press = press+1;
+			presstgt = 1;
+		}
+		
+		if (press == 1 )
+		{
+			code = code + 1000*8;
+		}
+		
+		if (press == 2)
+		{
+			code = code + 100*8;
+		}
+		if (press == 3)
+		{
+			code = code + 10*8;
+		}
+		if (press == 4)
+		{
+			code = code + 1*8;
+		}
+		
+	}
+	
+	
+	if(mousePressed == false)
+	{
+		presstgt = 0;
+	}
+		
+	//nine
+	if(mousePressed == true && mouseButton == LEFT && presstgt == 0)
+	{
+		if(mouseX > 50+rectWidth*2+rectGap*2 && mouseX < 50+rectWidth*3+rectGap*2 && 
+			mouseY > 50+rectHeight*2+rectGap*2 && mouseY < 50+rectHeight*3+rectGap*2)
+		{
+			press = press+1;
+			presstgt = 1;
+		}
+		
+		if (press == 1 )
+		{
+			code = code + 1000*9;
+		}
+		
+		if (press == 2)
+		{
+			code = code + 100*9;
+		}
+		if (press == 3)
+		{
+			code = code + 10*9;
+		}
+		if (press == 4)
+		{
+			code = code + 1*9;
+		}
+		
+	}
+	
+	
+	if(mousePressed == false)
+	{
+		presstgt = 0;
+	}
+	
+	//zero
+	if(mousePressed == true && mouseButton == LEFT && presstgt == 0)
+	{
+		if(mouseX > 50+rectWidth+rectGap && mouseX < 50+rectWidth*2+rectGap && 
+			mouseY > 50+rectHeight*3+rectGap*3 && mouseY < 50+rectHeight*4+rectGap*4)
+		{
+			press = press+1;
+			presstgt = 1;
+		}
+		
+		if (press == 1 )
+		{
+			code = code + 1000*0;
+		}
+		
+		if (press == 2)
+		{
+			code = code + 100*0;
+		}
+		if (press == 3)
+		{
+			code = code + 10*0;
+		}
+		if (press == 4)
+		{
+			code = code + 1*0;
+		}
+		
+	}
+	
+	if(mousePressed == false)
+	{
+		presstgt = 0;
+	}
+	
+	
+	if(code == 15610)
+	{
+		link("welcome.html");
+	}
+	
+	if(mousePressed == false)
+	{
+		presstgt = 0;
+	}
+	if(press > 0)
+	{
+		image(star,400+35,300-130);
+	
+	}
+
+	if(press >= 2)
+	{
+		image(star,400+35+100,300-130);
+		
+	}
+	
+	if(press >= 3)
+	{
+		image(star,535+100,300-130);
+	}
+	
+	if(press >= 4)
+	{
+		image(star,635+100,300-130);
+	}
+	
+}
+
+</script>
+<canvas id="mycanvas"></canvas>
+</head>
+
+<body>
+
+</body>
+</html>

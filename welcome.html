@@ -1,0 +1,36 @@
+<html>
+<head>
+<title> Assign 1 </title>
+<script src="scripts/processing.js"></script>
+<script type="text/processing" data-processing-target="mycanvas">
+
+PImage welcome;
+
+void setup()
+{
+	size( 900, 500 );
+	frameRate( 30 );
+	
+	welcome = loadImage("Images/enter.png")
+	
+}
+
+
+void draw()
+{
+	background(255,255,255);
+	
+	image(welcome,350,225);
+	
+
+	
+}
+
+</script>
+<canvas id="mycanvas"></canvas>
+</head>
+
+<body>
+
+</body>
+</html>
